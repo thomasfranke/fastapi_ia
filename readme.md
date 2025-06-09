@@ -37,25 +37,28 @@ uvicorn main:app --reload --root-path .
 ### Folder Structure
 ```
 fastapi_ia/
-├── .env/                          # Arquivos de variáveis de ambiente (.env)
+├── .env/                          # Arquivos de configuração de variáveis de ambiente (.env)
 │
 ├── app/
-│   ├── data/                      # Implementações de acesso a dados
-│   │   ├── models/                # Modelos do ORM (ex: SQLAlchemy)
-│   │   └── repositories_impl/     # Implementações das interfaces do domínio
+│   ├── data/                      # Camada de persistência de dados
+│   │   ├── models/                # Modelos do banco de dados (ex: SQLAlchemy)
+│   │   └── repositories_impl/     # Implementações concretas das interfaces do domínio
 │   │
-│   ├── domain/                    # Entidades e regras de negócio
-│   │   ├── entities/              # Entidades puras (sem dependências externas)
-│   │   ├── repositories/          # Interfaces para repositórios (contratos)
-│   │   ├── services/              # Regras de negócio auxiliares (opcional)
-│   │   └── usecases/              # Casos de uso (Application Services)
-│   ├── infrastructure/            # Huddingface
-│   └── presentation/              # Camada de apresentação (FastAPI)
-│       ├── feature_1/             # Rotas, controllers e schemas da feature 1
-│       │   ├── controller.py
-│       │   ├── routes.py
-│       │   └── schemas.py
-│       └── feature_2/             # Rotas, controllers e schemas da feature 2
+│   ├── domain/                    # Núcleo da aplicação (regras e lógica de negócio)
+│   │   ├── entities/              # Entidades do domínio (sem dependências externas)
+│   │   ├── repositories/          # Interfaces (contratos) dos repositórios
+│   │   ├── services/              # Serviços de domínio (lógica auxiliar e reutilizável)
+│   │   ├── usecases/              # Casos de uso que orquestram as regras de negócio
+│   │   └── value_objects/         # Objetos de valor (imutáveis e comparáveis por valor)
+│   │
+│   ├── infrastructure/            # Integrações com serviços externos (ex: Hugging Face)
+│   │
+│   └── presentation/              # Camada de interface (API) usando FastAPI
+│       ├── feature_1/             # Módulo da feature 1: rotas, controlador e schemas
+│       │   ├── controller.py      # Lógica de entrada (chama casos de uso)
+│       │   ├── routes.py          # Definição das rotas da feature
+│       │   └── schemas.py         # Schemas são models de entrada/saída
+│       └── feature_2/             # Módulo da feature 2: rotas, controlador e schemas
 │
-└── main.py                        # Ponto de entrada da aplicação FastAPI
+└── main.py                        # Arquivo principal de inicialização da aplicação FastAPI
 ```

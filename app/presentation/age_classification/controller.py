@@ -1,4 +1,3 @@
-# controller.py
 from app.domain.usecases.age_classification_usecase import AgeClassificationUseCase
 from app.infrastructure.huggingface_age_service import HuggingFaceAgeService
 from .schemas import AgeRatingRequest

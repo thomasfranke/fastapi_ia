@@ -1,4 +1,3 @@
-# ===== 1. app/domain/entities/hate_speech_analysis.py =====
 from dataclasses import dataclass
 from typing import List, Optional
 from datetime import datetime

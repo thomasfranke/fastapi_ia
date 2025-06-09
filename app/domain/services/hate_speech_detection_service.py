@@ -1,4 +1,3 @@
-# ===== 2. app/domain/services/hate_speech_detection_service.py =====
 from abc import ABC, abstractmethod
 from app.domain.entities.hate_speech_analysis import HateSpeechAnalysis
 

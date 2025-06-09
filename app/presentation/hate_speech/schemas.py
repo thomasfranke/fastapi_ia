@@ -1,4 +1,3 @@
-# ===== 5. app/presentation/hate_speech/schemas.py =====
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime

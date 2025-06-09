@@ -1,4 +1,3 @@
-# ===== 3. app/domain/usecases/detect_hate_speech_usecase.py =====
 from app.domain.services.hate_speech_detection_service import HateSpeechDetectionService
 from app.domain.entities.hate_speech_analysis import HateSpeechAnalysis
 import logging

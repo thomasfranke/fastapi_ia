@@ -1,4 +1,3 @@
-# ===== 7. app/presentation/hate_speech/routes.py =====
 from fastapi import APIRouter, HTTPException, Depends
 from app.presentation.hate_speech.controller import HateSpeechController
 from app.presentation.hate_speech.schemas import (

@@ -1,4 +1,3 @@
-# app/domain/value_objects/text_content.py
 class TextContent:
     def __init__(self, text: str):
         if not text or not text.strip():

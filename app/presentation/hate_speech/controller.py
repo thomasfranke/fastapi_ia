@@ -1,4 +1,3 @@
-# ===== 6. app/presentation/hate_speech/controller.py =====
 from app.domain.usecases.detect_hate_speech_usecase import DetectHateSpeechUseCase, AnalyzeHateSpeechUseCase
 from app.presentation.hate_speech.schemas import (
     HateSpeechRequest, 
