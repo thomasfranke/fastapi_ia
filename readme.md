@@ -2,7 +2,7 @@
 python3 -m venv .env
 
 ### Iniciar o ambiente
-source .env/bin/activate
+source .env/bin/activate  
 deactivate
 
 ### Inicializar
@@ -61,4 +61,40 @@ fastapi_ia/
 │       └── feature_2/             # Módulo da feature 2: rotas, controlador e schemas
 │
 └── main.py                        # Arquivo principal de inicialização da aplicação FastAPI
+```
+
+```mermaid
+graph TD
+  subgraph fastapi_ia
+    subgraph app
+      subgraph data["data (persistência)"]
+        models["models (DB Models)"]
+        repositories_impl["repositories_impl (implementações)"]
+      end
+
+      subgraph domain["domain (núcleo da aplicação)"]
+        entities["entities (entidades do domínio)"]
+        repositories["repositories (interfaces)"]
+        services["services (serviços de domínio)"]
+        usecases["usecases (casos de uso)"]
+      end
+
+      subgraph infrastructure["infrastructure (integrações externas)"]
+      end
+
+      subgraph presentation["presentation (API - FastAPI)"]
+        feature_1["feature_1"]
+        feature_2["feature_2"]
+      end
+    end
+
+  end
+
+  %% Conexões básicas
+  main_py --> presentation
+  presentation --> domain
+  domain --> presentation
+  domain --> data
+  domain --> infrastructure
+
 ```
